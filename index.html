@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>ToolsForSchool</title>
+	</head>
+	<body>
+		<div class="TopNav"> 
+			<div style="position: absolute; width: 1000px; height: 100px; left: calc(50% - 500px);"> 
+				<img src="./Assets/Images/Pages/Main/logo.png" style="height: 100px; cursor: pointer;" onclick="LoadHTML('Home')">
+				<div class="TopButton" style="left: calc(50% - 100px);" onclick="LoadHTML('Browse')">Browse</div>
+			</div>
+		</div>
+		
+		<div id="WebContent"> </div>
+		<div class="BackgroundColor"></div>
+		<style>
+		
+			body, html {
+				margin: 0px;
+				overflow-x:hidden;
+			}
+		
+			.TopNav {
+				width: 100%;
+				height: 100px;
+				background-color: rgb(23,26,33);
+			}
+			
+			.WebContent {
+				position: absolute;
+				height: calc(100% - 100px);
+				width: 100%;
+				top: 100px;
+			}
+			
+			.BackgroundColor {
+				position: fixed;
+				height: 100%;
+				width: 100%;
+				top: 0px;
+				background-image: linear-gradient(90deg, rgb(23,26,33), rgb(46,52,66), rgb(23,26,33));
+				z-index: -1;
+			}
+			
+			.TopButton {
+				position:absolute;
+				top: 25px;
+				text-align: center;
+				font-weight: normal;
+				text-transform: uppercase;
+				line-height: 50px;
+				height: 50px;
+				width: 60px;
+				background-color: rgb(0,0,0,0);
+				color: rgb(210,210,210);
+				font-size: 16px; 
+				text-align: center; 
+				font-family:Sans-serif; 
+				cursor: pointer;
+			}
+			
+			.TopButton:hover {
+				color: rgb(255,255,255);
+			}
+			
+		</style>
+		
+		<script src="./JQuery.js"> </script>
+		
+		<script>
+		
+			function getParameterByName(name, url = window.location.href) {
+				name = name.replace(/[\[\]]/g, '\\$&');
+				var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+				results = regex.exec(url);
+				if (!results) return null;
+				if (!results[2]) return '';
+				return decodeURIComponent(results[2].replace(/\+/g, ' '));
+			}
+			
+			function stripQueryStringAndHashFromPath(url) {
+				return url.split("?")[0].split("#")[0];
+			}
+			
+			function readCookie(name) {
+				var nameEQ = name + "=";
+				var ca = document.cookie.split(';');
+				for(var i=0;i < ca.length;i++) {
+					var c = ca[i];
+					while (c.charAt(0)==' ') c = c.substring(1,c.length);
+					if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+				}
+				return null;
+			}
+			
+			var LoadHTML;
+			
+			var CurrentHTML;
+			
+			$(document).ready(function(){
+				LoadHTML = function (HTMLFile,Query)
+				{
+					var OpenLink;
+					if (Query)
+					{
+						OpenLink = stripQueryStringAndHashFromPath(window.location.href) + "?m=" + HTMLFile + "&" + Query;
+					}
+					else
+					{
+						OpenLink = stripQueryStringAndHashFromPath(window.location.href) + "?m=" + HTMLFile;
+					}
+					if (OpenLink != window.location.href)
+					{
+						window.open(OpenLink,"_self");
+					}
+				}
+				var Opened = getParameterByName("m");
+				if (Opened)
+				{
+					$('#WebContent').load("./Pages/" + Opened + ".html");
+				}
+				else
+				{
+					window.open(stripQueryStringAndHashFromPath(window.location.href) + "?m=" + "Home","_self");
+				}
+			});
+		
+		</script>
+	</body>
+</html>
