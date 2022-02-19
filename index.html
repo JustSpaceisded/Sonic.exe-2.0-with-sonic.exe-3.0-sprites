@@ -4,15 +4,17 @@
 		<title>ToolsForSchool</title>
 	</head>
 	<body>
+		<img src="./Assets/Images/Pages/Main/NavBar.png" style="opacity:0.85; position: absolute; width:100%; height: 100px;">
 		<div class="TopNav"> 
 			<div style="position: absolute; width: 1000px; height: 100px; left: calc(50% - 500px);"> 
 				<img src="./Assets/Images/Pages/Main/logo.png" style="height: 100px; cursor: pointer;" onclick="LoadHTML('Home')">
 				<div class="TopButton" style="left: calc(50% - 100px);" onclick="LoadHTML('Browse')">Browse</div>
 			</div>
+			<div id="ThemeButton" style="position: absolute; object-fit: cover; right: 25px; top: 25px; color: rgb(210,210,210); font-size: 16px; text-align: center; font-family:Sans-serif; cursor: pointer; -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" onclick="SetNextTheme()"></div>
 		</div>
 		
 		<div id="WebContent"> </div>
-		<div class="BackgroundColor"></div>
+		<img id = "BackgroundC" class="BackgroundColor"></img>
 		<style>
 		
 			body, html {
@@ -23,7 +25,7 @@
 			.TopNav {
 				width: 100%;
 				height: 100px;
-				background-color: rgb(23,26,33);
+				background-color: rgb(255,255,255,0);
 			}
 			
 			.WebContent {
@@ -31,15 +33,6 @@
 				height: calc(100% - 100px);
 				width: 100%;
 				top: 100px;
-			}
-			
-			.BackgroundColor {
-				position: fixed;
-				height: 100%;
-				width: 100%;
-				top: 0px;
-				background-image: linear-gradient(90deg, rgb(23,26,33), rgb(46,52,66), rgb(23,26,33));
-				z-index: -1;
 			}
 			
 			.TopButton {
@@ -93,6 +86,52 @@
 				return null;
 			}
 			
+			function UpdateTheme()
+			{
+				var Theme = window.localStorage.getItem("Theme");
+				document.getElementById("ThemeButton").innerHTML = "Theme: " + Theme;
+				document.getElementById("BackgroundC").style = "position: fixed; height: 100vh; width: 100vw; top: 0px; object-fit: cover; z-index: -1;";
+				document.getElementById("BackgroundC").src = "./Assets/Images/Pages/Main/Backgrounds/" + Theme + "Background.png";
+			}
+			
+			if (window.localStorage.getItem("Theme") == null)
+			{
+				window.localStorage.setItem("Theme","Default");
+			}
+			
+			function SetNextTheme()
+			{
+				var T = window.localStorage.getItem("Theme");
+				if (T == "Default")
+				{
+					window.localStorage.setItem("Theme","White")
+				}
+				else if (T == "White")
+				{
+					window.localStorage.setItem("Theme","Gay")
+				}
+				else if (T == "Gay")
+				{
+					window.localStorage.setItem("Theme","EDP445")
+				}
+				else if (T == "EDP445")
+				{
+					window.localStorage.setItem("Theme","Linus")
+				}
+				else if (T == "Linus")
+				{
+					window.localStorage.setItem("Theme","No se puede hacer esto en clase")
+				}
+				else if (T == "No se puede hacer esto en clase")
+				{
+					window.localStorage.setItem("Theme","Default")
+				}
+				
+				UpdateTheme();
+			}
+			
+			UpdateTheme();
+			
 			var LoadHTML;
 			
 			var CurrentHTML;
@@ -124,6 +163,13 @@
 					window.open(stripQueryStringAndHashFromPath(window.location.href) + "?m=" + "Home","_self");
 				}
 			});
+			
+			document.addEventListener("keydown", function (e) {
+				if([37,38,39,40].indexOf(e.keyCode) > -1)
+				{
+					e.preventDefault();
+				}
+			}, false);
 		
 		</script>
 	</body>

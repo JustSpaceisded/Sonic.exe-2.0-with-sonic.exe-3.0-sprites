@@ -1,6 +1,6 @@
 <body>
 	
-	<div id="PlayerContent" onclick="FocusOnGame()">
+	<div id="PlayerContent">
 		
 	</div>
 	
@@ -59,9 +59,9 @@
 			var ID = getParameterByName("ID")
 			if (ID)
 			{
-				var url = "./Assets/Games/" + ID + "/SoftwareData.json";
+				var url = "./Assets/Apps/" + ID + "/SoftwareData.json";
 			
-				$("#PlayerContent").load("./Assets/Games/" + ID + "/index.html");
+				$("#PlayerContent").load("./Assets/Apps/" + ID + "/index.html");
 				$.getJSON(url, function(data) {
 					document.getElementById("Description").innerHTML = data.Description;
 				})
@@ -71,3 +71,4 @@
 	</script>
 	
 </body>
+
