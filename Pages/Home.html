@@ -15,6 +15,18 @@
 		&emsp;* Custom themes<br>
 	</div>
 	
+	<div id="Text">
+		<center><b>Random Meme</b></center> 
+	</div>
+	
+	<video id="vid" controls>
+		<source id="vidsrc" type="video/mp4">
+	</video>
+	
+	<script>
+		document.getElementById("vidsrc").src = "./Assets/Videos/Memes/" + String(Math.floor(Math.random() * 8)) + ".mp4";
+	</script>
+	
 	<style> 
 		
 		#Changes {
@@ -22,6 +34,31 @@
 			width: 300px;
 			height: 300px;
 			left: calc(50% + 100px);
+			top: 200px;
+			background-color: rgb(31,31,31,0.5);
+			color: rgb(255,255,255); 
+			font-size: 16px; 
+			font-family:Sans-serif;
+			border-radius: 15px;
+		}
+		
+		#Text {
+			position: absolute;
+			width: 300px;
+			right: calc(50% + 100px);
+			top: 175px;
+			background-color: rgb(31,31,31,0.5);
+			color: rgb(255,255,255); 
+			font-size: 16px; 
+			font-family:Sans-serif;
+			border-radius: 15px;
+		}
+		
+		#vid {
+			position: absolute;
+			width: 300px;
+			height: 300px;
+			right: calc(50% + 100px);
 			top: 200px;
 			background-color: rgb(31,31,31,0.5);
 			color: rgb(255,255,255); 
