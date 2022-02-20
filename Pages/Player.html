@@ -62,9 +62,10 @@
 				var url = "./Assets/Games/" + ID + "/SoftwareData.json";
 			
 				$("#PlayerContent").load("./Assets/Games/" + ID + "/index.html");
-				$.getJSON(url, function(data) {
+				$.getJSON(url, function(data) 
+				{
 					document.getElementById("Description").innerHTML = data.Description;
-				})
+				});
 			}
 		});
 	
