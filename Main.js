@@ -36,7 +36,7 @@ function UpdateTheme()
 	document.getElementById("ThemeButton").innerHTML = "Theme: " + Theme;
 	document.getElementById("BackgroundC").style = "position: fixed; height: 100vh; width: 100vw; top: 0px; object-fit: cover; z-index: -1; -moz-user-select: none; -webkit-user-select: none; user-select: none;";
 	document.getElementById("BackgroundC").src = "./Assets/Images/Pages/Main/Backgrounds/" + Theme + "Background.png";
-	document.getElementById("NavBarBackground").style = style=" position: absolute; width:100%; height: 100px; background-image: url('./Assets/Images/Pages/Main/NavBar/" + Theme + "Bar.png'); background-size: auto 100px;";
+	document.getElementById("NavBarBackground").style = style=" position: absolute; width:100%; height: 50px; background-image: url('./Assets/Images/Pages/Main/NavBar/" + Theme + "Bar.png'); background-size: auto 50px;";
 	
 }
 
