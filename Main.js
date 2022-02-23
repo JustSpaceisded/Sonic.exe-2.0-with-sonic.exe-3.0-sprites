@@ -39,6 +39,7 @@ function UpdateTheme()
 	document.getElementById("NavBarBackground").style = style=" position: absolute; width:100%; height: 50px; background-image: url('./Assets/Images/Pages/Main/NavBar/" + Theme + "Bar.png'); background-size: auto 50px;";
 	
 }
+document.getElementById("TopTitle").innerHTML = getParameterByName("m");
 
 function SetNextTheme()
 {
