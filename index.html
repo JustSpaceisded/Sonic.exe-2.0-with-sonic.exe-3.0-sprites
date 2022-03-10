@@ -5,23 +5,22 @@
 		<link rel="icon" type="image/x-icon" href="./Assets/Images/Pages/Main/Favicon.ico">
 	</head>
 	<body>
-		<div id="NavBarBackground" src="./Assets/Images/Pages/Main/NavBar/DefaultBar.png" style="z-index: -2; position: absolute; height: 25px; background-repeat: repeat-x;"></div><div id="TopNavBackgroundDark"> </div>
 		<div class="TopNav"> 
-			<div style="position: absolute; width: 1000px; height: 50px; left: calc(50% - 500px);"> 
-				<img src="./Assets/Images/Pages/Main/logo.png" style="position: absolute; height: 40px; top: 5px; cursor: pointer;" onclick="LoadHTML('Home')">
-				<div class="TopButton" style="right: calc(50% + 75px);" onclick="LoadHTML('Browse')">Browse</div>
-			</div>
-			<div id="ThemeButton" style="position: absolute; object-fit: cover; right: 25px; top: 5px; color: rgb(255,255,255); font-size: 16px; text-align: center; font-family:Sans-serif; -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"></div>
+			<img class="HamburgerMenu" src="./Assets/Images/Pages/Main/Hamburger.png" style="position: absolute; left: 10px; height:40px; width: 40px;"> 
+			<img src="./Assets/Images/Pages/Main/logo.png" style="position: absolute; left: 50px; height: 37px; top: 1px; cursor: pointer;" onclick="LoadHTML('Home')">
+			<div class="TopButton" style="left: 325px;" onclick="LoadHTML('Browse')">Browse</div>
 			
-			<div id="ThemeNextButton" style="position: absolute; object-fit: cover; right: 25px; top: 25px; color: rgb(255,255,255); font-size: 16px; text-align: center; font-family:Sans-serif; cursor: pointer; -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" onclick="SetNextTheme()"> > </div>
-			<div id="ThemePreviousButton" style="position: absolute; object-fit: cover; right: 50px; top: 25px; color: rgb(255,255,255); font-size: 16px; text-align: center; font-family:Sans-serif; cursor: pointer; -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" onclick="SetPreviousTheme()"> < </div>
+			<div  class="TopButton" id="GithubButton" style="left: 425px;" onclick="window.open('https://github.com/MehKako/ToolsForSchool','_target')">Github</div>
 			
-			<div id="GithubButton" style="position: absolute; object-fit: cover; left: 25px; height: 50px; line-height: 50px; color: rgb(255,255,255); font-size: 16px; text-align: center; font-family:Sans-serif; cursor: pointer; -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" onclick="window.open('https://github.com/MehKako/ToolsForSchool','_target')">Github</div>
+			<div id="ThemeButton" style="position: absolute; object-fit: cover; right: 25px; top: 3px; color: rgb(255,255,255); font-size: 16px; text-align: center; font-family:Sans-serif; -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;"></div>
+			
+			<div id="ThemeNextButton" style="position: absolute; object-fit: cover; right: 25px; top: 20px; color: rgb(255,255,255); font-size: 16px; text-align: center; font-family:Sans-serif; cursor: pointer; -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" onclick="SetNextTheme()"> > </div>
+			<div id="ThemePreviousButton" style="position: absolute; object-fit: cover; right: 40px; top: 20px; color: rgb(255,255,255); font-size: 16px; text-align: center; font-family:Sans-serif; cursor: pointer; -moz-user-select: none; -webkit-user-select: none; -ms-user-select:none; user-select:none;-o-user-select:none;" onclick="SetPreviousTheme()"> </div>
 		</div>
 		<div id="WebContent"> </div>
 		<img id="BackgroundC" src="./Assets/Images/Pages/Main/Backgrounds/DefaultBackground.png" class="BackgroundColor">
 		<style>
-		
+			
 			body, html {
 				margin: 0px;
 				overflow-x:hidden;
@@ -30,23 +29,23 @@
 			#TopNavBackgroundDark {
 				position: absolute;
 				width: 100%;
-				Height: 50px;
+				Height: 40px;
 				background-color: rgb(0,0,0,0.25);
 				z-index: 0;
 			}
-		
+			
 			.TopNav {
 				position: absolute;
 				width: 100%;
-				height: 50px;
-				background-color: rgb(255,255,255,0);
+				height: 40px;
+				background-image: linear-gradient(rgb(50,50,50), rgb(55,55,55));
 			}
 			
 			.WebContent {
 				position: absolute;
-				height: calc(100% - 50px);
+				height: calc(100% - 37px);
 				width: 100%;
-				top: 50px;
+				top: 37px;
 			}
 			
 			.TopButton {
@@ -55,8 +54,8 @@
 				text-align: center;
 				font-weight: normal;
 				text-transform: uppercase;
-				line-height: 50px;
-				height: 50px;
+				line-height: 40px;
+				height: 40px;
 				color: rgb(210,210,210);
 				font-size: 16px; 
 				text-align: center; 
